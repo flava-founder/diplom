@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "diplom"
+version = "0.1.0"
+description = ""
+authors = ["Zaur <ztedeev@ptsecurity.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+openai = "^1.79.0"
+telethon = "^1.40.0"
+fastapi = "^0.115.12"
+redis = "^6.1.0"
+ruff = "^0.11.10"
+python-dotenv = "^1.1.0"
+schedule = "^1.2.2"
+requests = "^2.32.3"
+uvicorn = "^0.34.2"
+psycopg = "^3.2.9"
+greenlet = "^3.2.2"
+sqlalchemy = "^2.0.41"
+aiohttp = "^3.12.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
