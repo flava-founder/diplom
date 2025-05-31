@@ -20,6 +20,8 @@ psycopg = "^3.2.9"
 greenlet = "^3.2.2"
 sqlalchemy = "^2.0.41"
 aiohttp = "^3.12.2"
+python-telegram-bot = "^22.1"
+faststream = "^0.5.42"
 
 
 [build-system]

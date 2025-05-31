@@ -57,10 +57,10 @@ async def run():
                                 '''
                             ), dict(
                                 leak_detected=answer['leak_detected'],
-                                leak_volume=answer['leak_volume'] or None,
-                                leak_object=answer['leak_object'] or None,
-                                company=answer['company'] or None,
-                                details=answer['details'] or None,
+                                leak_volume=answer.get('leak_volume', None) or None,
+                                leak_object=answer.get('leak_object', None) or None,
+                                company=answer.get('company', None) or None,
+                                details=answer.get('details', None) or None,
                                 source=data['source'],
                                 title=data['title'],
                                 content=data['message']
