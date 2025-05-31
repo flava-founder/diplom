@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
 
-from gpt.gpt import analyze_message
+from api.gpt import analyze_message
 
 
 class DetectRequest(BaseModel):

@@ -4,8 +4,9 @@ import asyncio
 import uvicorn
 
 from worker.worker import run
-from gpt.server import create_server
+from api.server import create_server
 from tg_parser.parser import start_parser
+from notify.bot import start_notify
 
 
 
@@ -18,4 +19,7 @@ if __name__ == '__main__':
 
     if sys.argv[1] == 'worker':
         asyncio.run(run())
+
+    if sys.argv[1] == 'notify':
+        start_notify()
 

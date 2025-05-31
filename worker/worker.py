@@ -44,7 +44,7 @@ async def run():
                     )
 
                     async with engine.begin() as connection:
-                        await connection.execute(
+                        query = await connection.execute(
                             text(
                                 '''
                                 INSERT INTO leaks (
@@ -54,6 +54,7 @@ async def run():
                                     :leak_detected, :leak_volume, :leak_object, :company, :details,
                                     :source, :title, :content
                                 )
+                                RETURNING id
                                 '''
                             ), dict(
                                 leak_detected=answer['leak_detected'],
@@ -66,9 +67,13 @@ async def run():
                                 content=data['message']
                             )
                         )
+                        msg_id = query.scalar()
 
                     logger.info('Saved %s', data)
 
                     if answer['leak_detected']:
-                        await redis.lpush('alert', json.dumps(data, ensure_ascii=False))
+                        data['id'] = msg_id
+                        await redis.lpush(
+                            'alert', json.dumps(data, ensure_ascii=False)
+                        )
                         logger.info('Sent to alert bot %s', data)

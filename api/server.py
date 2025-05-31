@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from gpt.endpoints import router
+from api.endpoints import router
 
 
 def create_server() -> FastAPI:
